@@ -22,3 +22,20 @@ function clearEntry () {
     updateDisplay();
 }
 
+let adding = (firstValue, secondValue) => {
+    return firstValue + secondValue;
+}
+
+let substracting = (firstValue, secondValue) => {
+    return  firstValue - secondValue;
+}
+
+let multiply = (firstValue, secondValue) => {
+    return firstValue * secondValue;
+}
+
+let division = (firstValue, secondValue)  => {
+    return firstValue / secondValue;
+}
+
+
