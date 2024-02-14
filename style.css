@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vh;
+    margin: auto;
+}
+
+button {
+    width: 45px;
+    height: 40px;
+    margin: 1px
+}
+
+button.equal-button {
+    height: 80px;
+    margin-top: 2px;
+}
+
+#backspace {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+
+}
+
+button {
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    border: 1px solid black;
+    border-radius: 6px;
+    
+}
+
+
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-shrink: 0;  
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.row-double {
+    display: flex;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+    margin: 1px;
+}
+
+.display {
+    padding-bottom: 12px;
+    padding-right: 1rem;
+    border: 1px solid;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    align-items: flex-end;
+    border-radius: 12px;
+}
+
+.result {
+    font-size: 30px;
+    width: 180px;
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.operation-display {
+    font-size: smaller;
+    width: 180px;
+    height: 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+}
+
+#op {
+    background-color: aqua;
+}
