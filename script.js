@@ -3,14 +3,22 @@ const displayResult = document.querySelector('.result');
 displayOperation.textContent ="0";
 let displayValue = '';
 
+function updateDisplay () {
+    displayOperation.innerHTML = displayValue;
+}
 
 function appendNumber (number) {
-    displayValue = number;
-    document.querySelector('.operation').innerHTML = displayValue; 
+    displayValue += number;
+    updateDisplay();
 }
 
 function performOperation (operator) {
-    displayValue = operator;
-    document.querySelector('.operation').innerHTML = displayValue;
+    displayValue += operator;
+    updateDisplay();
+}
+
+function clearEntry () {
+    displayValue = "";
+    updateDisplay();
 }
 
