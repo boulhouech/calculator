@@ -15,44 +15,44 @@
         <div class="buttons">
             <div class="rows">
             <div class="row n-1">
-                <button class="operation button">mc</button>
-                <button class="operation button">m+</button>
-                <button class="operation button">m-</button>
-                <button class="operation button">mr</button>
+                <button onclick="memoryClear()" class="operation button">mc</button>
+                <button onclick="memoryClear()" class="operation button">m+</button>
+                <button onclick="memoryMinus ()" class="operation button">m-</button>
+                <button onclick="memoryMinus()" class="operation button">mr</button>
             </div>
             <div class="row n-2">
-                <button class="operation button">C</button>
-                <button class="operation button" id="backspace">⌫</button>
-                <button class="operation button" id="op">/</button>
-                <button class="operation button" id="op">*</button>
+                <button onclick="clearEntry()" class="operation button">C</button>
+                <button onclick="backSpace()" class="operation button" id="backspace">⌫</button>
+                <button onclick="doTheDivision('/')" class="operation button" id="op">/</button>
+                <button onclick="doTheMultiply('*')" class="operation button" id="op">*</button>
             </div>
             <div class="row n-3">
-                <button class="digit button">7</button>
-                <button class="digit button">8</button>
-                <button class="digit button">9</button>
-                <button class="operation button" id="op">-</button>
+                <button onclick="appendNumber(7)" class="digit button">7</button>
+                <button onclick="appendNumber(8)" class="digit button">8</button>
+                <button onclick="appendNumber(9)" class="digit button">9</button>
+                <button onclick="appendNumber(8)" onclick="performSubtraction('-')" class="operation button" id="op">-</button>
             </div>
             <div class="row n-4">
-                <button class="digit button">4</button>
-                <button class="digit button">5</button>
-                <button class="digit button">6</button>
-                <button class="operation button" id="op">+</button>
+                <button onclick="appendNumber(4)" class="digit button">4</button>
+                <button onclick="appendNumber(5)" class="digit button">5</button>
+                <button onclick="appendNumber(6)" class="digit button">6</button>
+                <button onclick="performAdding('+')" class="operation button" id="op">+</button>
             </div>
             <div class="row row-double">
                 <div class="row-double-number">
                     <div class="row-5">
-                    <button class="digit button">1</button>
-                    <button class="digit button">2</button>
-                    <button class="digit button">3</button>
+                    <button onclick="appendNumber(1)" class="digit button">1</button>
+                    <button onclick="appendNumber(2)" class="digit button">2</button>
+                    <button onclick="appendNumber(3)" class="digit button">3</button>
                     </div>  
                     <div class="row-double-buttons">
-                        <button class="operation button">%</button>
-                        <button class="digit button">0</button>
+                        <button onclick="performPercentage()" class="operation button">%</button>
+                        <button onclick="appendNumber(0)" class="digit button">0</button>
                         <button class="operation button">,</button>
                     </div>
                 </div>  
                 <div class="row-equal">
-                    <button class="equal-button" id="op">=</button>
+                    <button onclick="perfomCalcul()" class="equal-button" id="op">=</button>
                 </div>  
                 </div>
             </div> 
