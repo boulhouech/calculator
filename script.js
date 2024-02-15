@@ -2,7 +2,7 @@
     const displayResult = document.querySelector('.result');
     let displayValue = '';
     let firstNumber = '';
-    let secondtNumber = '';
+    let secondNumber = '';
     let operator = '';
     displayOperation.textContent ="0";
     
@@ -64,20 +64,37 @@
 
    document.addEventListener('click',(event) => {
       const clickedElement = event.target;
-     if (clickedElement.contains('digit')) {
-
+        hundleNumberClicked(clickedElement.innerHTML);
+     if (clickedElement.contains('digit')) { 
+        hundleNumberClicked(clickedElement.innerHTML);
+     } else if (clickedElement.contains('operation')) {
+        hundleOperatorClicked(clickedElement.innerHTML);
      }
-     
-    
+     else (clickedElement.contains('equal-button')) //call the fucntion that will do the calculation thing !
    });
 
    function hundleNumberClicked (number) {
+    if (operator === '') {
+        firstNumber += number;
+        updateDisplay(firstNumber)
+    } else {
+        secondNumber += number;
+        updateDisplay(secondNumber);
+    }
 
    }
 
    function hundleOperatorClicked () {
-    
+
    }
+
+   function updateDisplay () {
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+   }
+
+
 
    
 
