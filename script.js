@@ -1,25 +1,29 @@
     const displayOperation = document.querySelector('.operation');
     const displayResult = document.querySelector('.result');
-    displayOperation.textContent ="0";
     let displayValue = '';
+    let firstNumber = '';
+    let secondtNumber = '';
+    let operator = '';
+    displayOperation.textContent ="0";
+    
 
-    function updateDisplay () {
+    function populateDisplay () {
         displayOperation.innerHTML = displayValue;
     }
 
     function appendNumber (number) {
         displayValue += number;
-        updateDisplay();
+        populateDisplay();
     }
 
     function performOperation (operator) {
         displayValue += ' ' + operator + ' ';
-        updateDisplay();
+        populateDisplay();
     }
 
     function clearEntry () {
         displayValue = "";
-        updateDisplay();
+        populateDisplay();
     }
 
     let addNumbers = (firstValue, secondValue) => {
@@ -54,8 +58,41 @@
             case '/': 
                 return divideNumbers(firstValue, secondValue);
         }   
-        
     }  
+
+   // fucntion to store the valueof the clicked button inn the operatefunction
+
+   document.addEventListener('click',(event) => {
+      const clickedElement = event.target;
+     if (clickedElement.contains('digit')) {
+
+     }
+     
+    
+   });
+
+   function hundleNumberClicked (number) {
+
+   }
+
+   function hundleOperatorClicked () {
+    
+   }
+
+   
+
+
+
+
+
+   
+
+
+
+
+    
+
+
 
 
 
