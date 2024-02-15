@@ -21,7 +21,7 @@
                 <button onclick="memoryMinus()" class="operation button">mr</button>
             </div>
             <div class="row n-2">
-                <button onclick="clearEntry()" class="operation button">C</button>
+                <button onclick="clearEntry()" class="operation button" id="clear-button"></button>
                 <button onclick="backSpace()" class="operation button" id="backspace">⌫</button>
                 <button onclick="performOperation('/')" class="operation button" id="op">/</button>
                 <button onclick="performOperation('*')" class="operation button" id="op">*</button>
@@ -30,7 +30,7 @@
                 <button onclick="appendNumber(7)" class="digit button">7</button>
                 <button onclick="appendNumber(8)" class="digit button">8</button>
                 <button onclick="appendNumber(9)" class="digit button">9</button>
-                <button onclick="performOperation('-')" class="operation button" id="op">-</button>
+                <button onclick="performOperation('-')" class="clear-button" id="op">-</button>
             </div>
             <div class="row n-4">
                 <button onclick="appendNumber(4)" class="digit button">4</button>

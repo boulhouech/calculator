@@ -1,10 +1,17 @@
 const displayOperation = document.querySelector('.operation');
 const displayResult = document.querySelector('.result');
 let displayValue = '';
+let resultBeingDisplayed = '';
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 displayOperation.textContent = "0";
+
+
+function populateResult () {
+    displayResult.innerHTML = resultBeingDisplayed;
+
+}
 
 function populateDisplay() {
     displayOperation.innerHTML = displayValue;
@@ -22,6 +29,9 @@ function performOperation(op) {
 
 function clearEntry() {
     displayValue = "";
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
     populateDisplay();
 }
 
@@ -67,6 +77,8 @@ document.addEventListener('click', (event) => {
         handleOperatorClicked(clickedElement.innerHTML);
     } else if (clickedElement.classList.contains('equal-button')) {
         performCalculation();
+    } else if (clickedElement.classList.contains('clear-button')) {
+        clearEntry();
     }
 });
 
@@ -95,5 +107,7 @@ function updateDisplay() {
 function performCalculation() {
     const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
     displayValue = result.toString();
+    resultBeingDisplayed = displayValue;
+    populateResult()
     populateDisplay();
 }
