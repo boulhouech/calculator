@@ -63,15 +63,17 @@
    // fucntion to store the valueof the clicked button inn the operatefunction
 
    document.addEventListener('click',(event) => {
-      const clickedElement = event.target;
-        hundleNumberClicked(clickedElement.innerHTML);
-     if (clickedElement.contains('digit')) { 
-        hundleNumberClicked(clickedElement.innerHTML);
-     } else if (clickedElement.contains('operation')) {
-        hundleOperatorClicked(clickedElement.innerHTML);
-     }
-     else (clickedElement.contains('equal-button')) //call the fucntion that will do the calculation thing !
-   });
+    const clickedElement = event.target;
+
+    if (clickedElement.classList.contains('digit')) { 
+        handleNumberClicked(clickedElement.innerHTML);
+    } else if (clickedElement.classList.contains('operation')) {
+        handleOperatorClicked(clickedElement.innerHTML);
+    } else if (clickedElement.classList.contains('equal-button')) {
+        // Call the function that will do the calculation thing!
+    }
+});
+
 
    function hundleNumberClicked (number) {
     if (operator === '') {
@@ -84,15 +86,24 @@
 
    }
 
-   function hundleOperatorClicked () {
-
-   }
+   function handleOperatorClick(op) {
+    if (firstNumber !== '' && secondNumber !== '') {
+      operate();
+    }
+    operator = op;
+  }
 
    function updateDisplay () {
     firstNumber = '';
     secondNumber = '';
     operator = '';
    }
+
+   function perfomCalcul() {
+    operate();
+   }
+
+   
 
 
 
