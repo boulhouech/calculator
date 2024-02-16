@@ -1,152 +1,139 @@
 const displayOperation = document.querySelector('.operation');
-        const displayResult = document.querySelector('.result');
-        let displayValue = '';
-        let resultBeingDisplayed = '';
-        let firstNumber = '';
-        let secondNumber = '';
-        let operator = '';
-        displayOperation.textContent = "0";
+const displayResult = document.querySelector('.result');
+const resultArray = [];
+const operationArray = [];
+let displayValue = '';
+let resultBeingDisplayed = '';
+let firstNumber = '';
+let secondNumber = '';
+let operator = '';
 
+displayOperation.textContent = "0";
 
-        function populateResult() {
-            displayResult.innerHTML = resultBeingDisplayed;
+function populateResult() {
+    displayResult.innerHTML = resultBeingDisplayed;
+}
 
-        }
+function populateDisplay() {
+    displayOperation.innerHTML = displayValue;
+}
 
-        function populateDisplay() {
-            displayOperation.innerHTML = displayValue;
-        }
+function appendNumber(number) {
+    displayValue += number;
+    populateDisplay();
+}
 
-        function appendNumber(number) {
-            displayValue += number;
-            populateDisplay();
-        }
+function performOperation(op) {
+    displayValue += ' ' + op + ' ';
+    populateDisplay();
+}
 
-        function performOperation(op) {
-            displayValue += ' ' + op + ' ';
-            populateDisplay();
-        }
+function clearEntry() {
+    displayValue = "";
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    resultBeingDisplayed = '';
+    populateDisplay();
+    populateResult();
+}
 
-        function clearEntry() {
-            displayValue = "";
-            firstNumber = '';
-            secondNumber = '';
-            operator = '';
-            resultBeingDisplayed = '';
-            populateDisplay();
-            populateResult();
-        }
+let addNumbers = (firstValue, secondValue) => {
+    return firstValue + secondValue;
+}
 
-        let addNumbers = (firstValue, secondValue) => {
-            return firstValue + secondValue;
-        }
+let subtractNumbers = (firstValue, secondValue) => {
+    return firstValue - secondValue;
+}
 
-        let subtractNumbers = (firstValue, secondValue) => {
-            return firstValue - secondValue;
-        }
+let multiplyNumbers = (firstValue, secondValue) => {
+    return firstValue * secondValue;
+}
 
-        let multiplyNumbers = (firstValue, secondValue) => {
-            return firstValue * secondValue;
-        }
+let divideNumbers = (firstValue, secondValue) => {
+    if (secondValue === 0) {
+        return "Error: Division by zero!";
+    } else {
+        return firstValue / secondValue;
+    }
+}
 
-        let divideNumbers = (firstValue, secondValue) => {
-            if (secondValue === 0) {
-                return "Error: Division by zero!";
-            } else {
-                return firstValue / secondValue;
-            }
-        }
+function operate(selectedOperator, firstValue, secondValue) {
+    switch (selectedOperator) {
+        case '+':
+            return addNumbers(firstValue, secondValue);
+        case '-':
+            return subtractNumbers(firstValue, secondValue);
+        case '*':
+            return multiplyNumbers(firstValue, secondValue);
+        case '/':
+            return divideNumbers(firstValue, secondValue);
+    }
+}
 
-        function operate(selectedOperator, firstValue, secondValue) {
-            switch (selectedOperator) {
-                case '+':
-                    return addNumbers(firstValue, secondValue);
-                case '-':
-                    return subtractNumbers(firstValue, secondValue);
-                case '*':
-                    return multiplyNumbers(firstValue, secondValue);
-                case '/':
-                    return divideNumbers(firstValue, secondValue);
-            }
-        }
+document.addEventListener('click', (event) => {
+    const clickedElement = event.target;
 
-        document.addEventListener('click', (event) => {
-            const clickedElement = event.target;
+    if (clickedElement.classList.contains('digit')) {
+        handleNumberClicked(clickedElement.innerHTML);
+    } else if (clickedElement.classList.contains('operation')) {
+        handleOperatorClicked(clickedElement.innerHTML);
+    } else if (clickedElement.classList.contains('equal-button')) {
+        performCalculation();
+    } else if (clickedElement.classList.contains('clear-button')) {
+        clearEntry();
+    } else if (clickedElement.classList.contains('mr-button')) {
+        memoryRecall();
+    }
+});
 
-            if (clickedElement.classList.contains('digit')) {
-                handleNumberClicked(clickedElement.innerHTML);
-            } else if (clickedElement.classList.contains('operation')) {
-                handleOperatorClicked(clickedElement.innerHTML);
-            } else if (clickedElement.classList.contains('equal-button')) {
-                performCalculation();
-            } else if (clickedElement.classList.contains('clear-button')) {
-                clearEntry();
-            }
-        });
+function handleNumberClicked(number) {
+    if (operator === '') {
+        firstNumber += number;
+        updateDisplay();
+    } else {
+        secondNumber += number;
+        updateDisplay();
+    }
+}
 
-        function handleNumberClicked(number) {
-            if (operator === '') {
-                firstNumber += number;
-                updateDisplay();
-            } else {
-                secondNumber += number;
-                updateDisplay();
-            }
-        }
+function handleOperatorClicked(op) {
+    if (firstNumber !== '' && secondNumber !== '') {
+        performCalculation();
+        // After calculation, reset secondNumber
+        secondNumber = '';
+    }
+    operator = op;
+}
 
-        function handleOperatorClicked(op) {
-            if (firstNumber !== '' && secondNumber !== '') {
-                performCalculation();
-                // After calculation, reset secondNumber
-                secondNumber = '';
-            }
-            operator = op;
-        }
+function updateDisplay() {
+    displayValue = `${firstNumber} ${operator} ${secondNumber}`;
+    populateDisplay();
+}
 
+function performCalculation() {
+    const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+    resultBeingDisplayed = result.toString();
 
-        function updateDisplay() {
-            displayValue = `${firstNumber} ${operator} ${secondNumber}`;
-            memoeryRecall(resultBeingDisplayed, displayValue);
-            populateDisplay();
-        }
+    // Update variables for subsequent operations
+    firstNumber = resultBeingDisplayed;
+    secondNumber = '';
+    operator = '';
 
-        function performCalculation() {
-            const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
-            resultBeingDisplayed = result.toString();
+    populateResult();
+    populateDisplay();
 
-            // Update variables for subsequent operations
-            firstNumber = resultBeingDisplayed;
-            secondNumber = '';
-            operator = '';
+    // Store the result and operation after each calculation
+    resultArray.push(resultBeingDisplayed);
+    operationArray.push(displayValue);
+}
 
-            populateResult();
-            populateDisplay();
-            memoeryRecall(resultBeingDisplayed, displayValue)
-        }
+function memoryRecall() {
+    // Retrieve the last stored operation and result
+    const lastOperation = operationArray[operationArray.length - 1];
+    const lastResult = resultArray[resultArray.length - 1];
 
-        // memoeryReccal : (value) =  equal result and operation 
-
-        function memoeryRecall(result, operation) {
-            // for evrey time perfom calculation is called the operation display
-            // and the result display should be stored in the array below 
-            result = [];
-            operation = [];
-            performCalculation();
-            const calcule = document.querySelector(performCalculation);
-            calcule.addEventListener('click', ()=> {
-                result.push(resultBeingDisplayed);
-                operation.push(displayValue);
-            })
-        }
-
-        
-
-
-
-
-
-
-        // for evrey time equal buttons is clicked stroe the number in somwhere and called when mr
-        // fucntion (clickedButton) {
-        // saving value += clickedButton;
-        // }
+    // Update the display with the last operation and result
+    displayOperation.textContent = lastOperation;
+    displayResult.textContent = lastResult;
+}

@@ -27,3 +27,4 @@ I adapted certain design ideas and components from Jaime Velasquez's work to dev
 My sincere appreciation goes out to Jaime Velasquez for his guidance and creativity on successful user interface design.
 
 
+
