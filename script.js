@@ -2,6 +2,7 @@ const displayOperation = document.querySelector('.operation');
 const displayResult = document.querySelector('.result');
 const resultArray = [];
 const operationArray = [];
+const historySize = 10; // Set the  mex size of history = 10 
 let displayValue = '';
 let resultBeingDisplayed = '';
 let firstNumber = '';
@@ -126,14 +127,21 @@ function performCalculation() {
     // Store the result and operation after each calculation
     resultArray.push(resultBeingDisplayed);
     operationArray.push(displayValue);
+
+    // Keep only the last 10 operations and results
+    if (resultArray.length > historySize) {
+        resultArray.shift();
+        operationArray.shift();
+    }
 }
 
 function memoryRecall() {
-    // Retrieve the last stored operation and result
-    const lastOperation = operationArray[operationArray.length - 1];
-    const lastResult = resultArray[resultArray.length - 1];
+    // Concatenate the last 10 operations and results
+    const history = [];
+    for (let i = 0; i < Math.min(operationArray.length, historySize); i++) {
+        history.push(operationArray[i] + ' = ' + resultArray[i]);
+    }
 
-    // Update the display with the last operation and result
-    displayOperation.textContent = lastOperation;
-    displayResult.textContent = lastResult;
+    // Update the display with the concatenated history
+    displayOperation.textContent = history.join('\n');
 }
