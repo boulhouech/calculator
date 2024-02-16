@@ -28,20 +28,5 @@ My sincere appreciation goes out to Jaime Velasquez for his guidance and creativ
 
 
 
-/*
-    document.addEventListener('DOMContentLoaded', () => {
-        //this function creates subclasses To handle the
-        // several values stored and present them effectively.
-        function subDisplay() { 
-            const memoryPlusButton = document.querySelector('.mr-button');
-            const displayOperation = document.querySelector('.display-operation');
-        
-            memoryPlusButton.addEventListener('click', () => {
-                const valueItem = document.createElement('div');
-                valueItem.classList.add('sub-display');
-                displayOperation.appendChild(valueItem);
-                
-            });
-        }
-    });
+
     

@@ -122,3 +122,15 @@ button {
     flex-direction: column;
     background-color: brown;
 }
+
+.container {
+    overflow: auto;
+    max-height: 500px; /* Adjust the value as needed */
+}
+
+.operation-history-container {
+    overflow-y: auto;
+    max-height: 300px; 
+    max-width: 150px;
+}
+
