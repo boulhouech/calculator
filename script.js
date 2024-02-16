@@ -92,6 +92,9 @@ document.addEventListener('click', (event) => {
     else if (clickedElement.classList.contains('memory-clear')) {
         memoryClear()
     }
+    else if (clickedElement.classList.contains('memory-minus')) {
+        memoryMinus();
+    }
 
 });
 
@@ -159,6 +162,11 @@ function memoryRecall() {
     function memoryClear() {
         operationArray.length = 0;
         resultArray.length = 0;
+    }
+
+    function memoryMinus() {
+        operationArray.pop()
+        resultArray.pop();
     }
     
 
