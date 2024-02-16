@@ -106,6 +106,7 @@ const displayOperation = document.querySelector('.operation');
 
         function updateDisplay() {
             displayValue = `${firstNumber} ${operator} ${secondNumber}`;
+            memoeryRecall(resultBeingDisplayed, displayValue);
             populateDisplay();
         }
 
@@ -120,4 +121,32 @@ const displayOperation = document.querySelector('.operation');
 
             populateResult();
             populateDisplay();
+            memoeryRecall(resultBeingDisplayed, displayValue)
         }
+
+        // memoeryReccal : (value) =  equal result and operation 
+
+        function memoeryRecall(result, operation) {
+            // for evrey time perfom calculation is called the operation display
+            // and the result display should be stored in the array below 
+            result = [];
+            operation = [];
+            performCalculation();
+            const calcule = document.querySelector(performCalculation);
+            calcule.addEventListener('click', ()=> {
+                result.push(resultBeingDisplayed);
+                operation.push(displayValue);
+            })
+        }
+
+        
+
+
+
+
+
+
+        // for evrey time equal buttons is clicked stroe the number in somwhere and called when mr
+        // fucntion (clickedButton) {
+        // saving value += clickedButton;
+        // }
