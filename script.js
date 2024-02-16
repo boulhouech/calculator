@@ -107,14 +107,29 @@ document.addEventListener('click', (event) => {
 });
 
 function handleNumberClicked(number) {
-    if (operator === '') {
-        firstNumber += number;
-        updateDisplay();
+    if (number === ',') {
+        // Check if the comma is valid to be added
+        if ((operator === '' && !firstNumber.includes(',')) || (operator !== '' && !secondNumber.includes(','))) {
+            if (operator === '') {
+                // Append comma to firstNumber if no operator is selected
+                firstNumber += number;
+            } else {
+                // Append comma to secondNumber if an operator is selected
+                secondNumber += number;
+            }
+            updateDisplay();
+        }
     } else {
-        secondNumber += number;
-        updateDisplay();
+        if (operator === '') {
+            firstNumber += number;
+            updateDisplay();
+        } else {
+            secondNumber += number;
+            updateDisplay();
+        }
     }
 }
+
 
 function handleOperatorClicked(op) {
     if (firstNumber !== '' && secondNumber !== '') {
@@ -131,25 +146,30 @@ function updateDisplay() {
 }
 
 function performCalculation() {
-    const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+    // Replace commas with periods and convert to numbers
+    const firstNum = parseFloat(firstNumber.replace(',', '.'));
+    const secondNum = parseFloat(secondNumber.replace(',', '.'));
 
-    if (typeof result === 'number') {
-        // If the result is a number, display it
-        resultBeingDisplayed = result.toString();
+    const result = operate(operator, firstNum, secondNum);
+
+    if (!isNaN(result)) {
+        // If the result is a valid number, update accordingly
+        resultBeingDisplayed = result.toLocaleString('en-US'); // Format the result with commas
     } else {
         // If the result is not a number, it's an error message
-        resultBeingDisplayed = ''; // Clear the result display
+        resultBeingDisplayed = '';
         displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
     }
 
     // Update variables for subsequent operations
-    firstNumber = resultBeingDisplayed;
+    firstNumber = resultBeingDisplayed.replace(',', '.'); // Update firstNumber with the result
     secondNumber = '';
     operator = '';
 
     populateResult();
     populateDisplay();
 }
+
 
 
 
