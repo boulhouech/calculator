@@ -1,8 +1,9 @@
 const displayOperation = document.querySelector('.operation');
 const displayResult = document.querySelector('.result');
+const OpHisContainer = document.querySelector('.operation-history-container');
 const resultArray = [];
 const operationArray = [];
-const historySize = 10; // Set the  mex size of history = 10 
+const historySize = 10; // Set the  max size of history = 10 
 let displayValue = '';
 let resultBeingDisplayed = '';
 let firstNumber = '';
@@ -37,6 +38,10 @@ function clearEntry() {
     resultBeingDisplayed = '';
     populateDisplay();
     populateResult();
+    OpHisContainer.innerHTML = '';
+
+
+
 }
 
 let addNumbers = (firstValue, secondValue) => {
@@ -85,6 +90,8 @@ document.addEventListener('click', (event) => {
         clearEntry();
     } else if (clickedElement.classList.contains('mr-button')) {
         memoryRecall();
+        subDisplya();
+        
     }
     else if (clickedElement.classList.contains('memory-plus')) {
         memoryPlus();
@@ -137,15 +144,26 @@ function performCalculation() {
 }
 
 function memoryRecall() {
-    // Update the display with the concatenated history
-    const history = [];
-    // Concatenate the last 10 operations and results
-    for (let i = 0; i < Math.min(operationArray.length, historySize); i++) {
-        history.push(operationArray[i] + ' = ' + resultArray[i]);
-    }
-    displayOperation.textContent = history.join('\n');
+    // Select the container where you want to display the operation history
+    const operationHistoryContainer = document.querySelector('.display .operation-history-container');
     
+    // Clear the container before populating with new operation history
+    operationHistoryContainer.innerHTML = '';
+
+    // Concatenate and display the operation history
+    for (let i = 0; i < Math.min(operationArray.length, historySize); i++) {
+        const operation = operationArray[i];
+        const result = resultArray[i];
+        
+        // Create a new div element for each operation
+        const newOperationDiv = document.createElement('div');
+        newOperationDiv.textContent = operation + ' = ' + result;
+        
+        // Append the new div element to the container
+        operationHistoryContainer.appendChild(newOperationDiv);
+    }
 }
+
 
  function memoryPlus () {
      // Store the result and operation after each calculation
@@ -157,21 +175,26 @@ function memoryRecall() {
          resultArray.shift();
          operationArray.shift();
       }
+    
+
     }
 
     function memoryClear() {
         operationArray.length = 0;
         resultArray.length = 0;
+        
     }
 
     function memoryMinus() {
         operationArray.pop()
         resultArray.pop();
     }
+
+    
+      
     
 
  
     
 
 
-// inside the result and operation display that must be sub classes to display the value created by DOM
