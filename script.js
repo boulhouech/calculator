@@ -89,6 +89,10 @@ document.addEventListener('click', (event) => {
     else if (clickedElement.classList.contains('memory-plus')) {
         memoryPlus();
     }
+    else if (clickedElement.classList.contains('memory-clear')) {
+        memoryClear()
+    }
+
 });
 
 function handleNumberClicked(number) {
@@ -149,12 +153,17 @@ function memoryRecall() {
      if (resultArray.length > historySize) {
          resultArray.shift();
          operationArray.shift();
-     }
+      }
+    }
 
+    function memoryClear() {
+        operationArray.length = 0;
+        resultArray.length = 0;
+    }
     
 
+ 
     
 
- }
 
 // inside the result and operation display that must be sub classes to display the value created by DOM
