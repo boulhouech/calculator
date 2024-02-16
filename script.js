@@ -57,6 +57,8 @@ let multiplyNumbers = (firstValue, secondValue) => {
 let divideNumbers = (firstValue, secondValue) => {
     if (secondValue === 0) {
         return "Error: Division by zero!";
+        displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
+
     } else {
         return firstValue / secondValue;
     }
@@ -148,6 +150,7 @@ function performCalculation() {
     populateResult();
     populateDisplay();
 }
+
 
 
 function memoryRecall() {

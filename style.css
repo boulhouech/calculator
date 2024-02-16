@@ -103,9 +103,9 @@ button {
     align-items: center;
 }
 
-.operation-display {
+.operation-dispaly {
     font-size: smaller;
-    width: 180px;
+    width: 200px;
     height: 25px;
     display: flex;
     justify-content: flex-end;
@@ -125,7 +125,7 @@ button {
 
 .container {
     overflow: auto;
-    max-height: 500px; /* Adjust the value as needed */
+    max-height: 500px;
 }
 
 .operation-history-container {
@@ -134,13 +134,19 @@ button {
     max-width: 150px;
 }
 
-/* Style the error message using a pseudo-element */
 .result::after {
     content: attr(data-error-message); /* Use the data-error-message attribute as content */
     color: red;
     font-weight: bold;
     display: block; /* Display as block to place it on a new line */
+    font-size: 12px;
+    
 }
+
+
+
+
+
 
 
 
