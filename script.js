@@ -86,6 +86,9 @@ document.addEventListener('click', (event) => {
     } else if (clickedElement.classList.contains('mr-button')) {
         memoryRecall();
     }
+    else if (clickedElement.classList.contains('memory-plus')) {
+        memoryPlus();
+    }
 });
 
 function handleNumberClicked(number) {
@@ -123,25 +126,35 @@ function performCalculation() {
 
     populateResult();
     populateDisplay();
-
-    // Store the result and operation after each calculation
-    resultArray.push(resultBeingDisplayed);
-    operationArray.push(displayValue);
-
-    // Keep only the last 10 operations and results
-    if (resultArray.length > historySize) {
-        resultArray.shift();
-        operationArray.shift();
-    }
+   
 }
 
 function memoryRecall() {
-    // Concatenate the last 10 operations and results
+    // Update the display with the concatenated history
     const history = [];
+    // Concatenate the last 10 operations and results
     for (let i = 0; i < Math.min(operationArray.length, historySize); i++) {
         history.push(operationArray[i] + ' = ' + resultArray[i]);
     }
-
-    // Update the display with the concatenated history
     displayOperation.textContent = history.join('\n');
+    
 }
+
+ function memoryPlus () {
+     // Store the result and operation after each calculation
+     resultArray.push(resultBeingDisplayed);
+     operationArray.push(displayValue);
+ 
+     // Keep only the last 10 operations and results
+     if (resultArray.length > historySize) {
+         resultArray.shift();
+         operationArray.shift();
+     }
+
+    
+
+    
+
+ }
+
+// inside the result and operation display that must be sub classes to display the value created by DOM
