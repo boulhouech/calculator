@@ -90,9 +90,7 @@ document.addEventListener('click', (event) => {
     } else if (clickedElement.classList.contains('clear-button')) {
         clearEntry();
     } else if (clickedElement.classList.contains('mr-button')) {
-        memoryRecall();
-        subDisplya();
-        
+        memoryRecall();  
     }
     else if (clickedElement.classList.contains('memory-plus')) {
         memoryPlus();
@@ -103,7 +101,9 @@ document.addEventListener('click', (event) => {
     else if (clickedElement.classList.contains('memory-minus')) {
         memoryMinus();
     }
-
+    else if (clickedElement.classList.contains('backspace-button')) {
+        backspace();
+    }
 });
 
 function handleNumberClicked(number) {
@@ -219,6 +219,22 @@ function memoryRecall() {
         operationArray.pop()
         resultArray.pop();
     }
+
+    function backspace() {
+        if (secondNumber !== '') {
+            // If there is a second number, delete the last character from it
+            secondNumber = secondNumber.slice(0, -1);
+        } else if (operator !== '') {
+            // If there is an operator, reset it
+            operator = '';
+        } else if (firstNumber !== '') {
+            // If there is a first number, delete the last character from it
+            firstNumber = firstNumber.slice(0, -1);
+        }
+    
+        updateDisplay();
+    }
+  
 
     
       
