@@ -134,3 +134,13 @@ button {
     max-width: 150px;
 }
 
+/* Style the error message using a pseudo-element */
+.result::after {
+    content: attr(data-error-message); /* Use the data-error-message attribute as content */
+    color: red;
+    font-weight: bold;
+    display: block; /* Display as block to place it on a new line */
+}
+
+
+

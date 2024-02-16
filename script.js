@@ -40,8 +40,6 @@ function clearEntry() {
     populateResult();
     OpHisContainer.innerHTML = '';
 
-
-
 }
 
 let addNumbers = (firstValue, secondValue) => {
@@ -63,6 +61,7 @@ let divideNumbers = (firstValue, secondValue) => {
         return firstValue / secondValue;
     }
 }
+
 
 function operate(selectedOperator, firstValue, secondValue) {
     switch (selectedOperator) {
@@ -131,7 +130,15 @@ function updateDisplay() {
 
 function performCalculation() {
     const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
-    resultBeingDisplayed = result.toString();
+
+    if (typeof result === 'number') {
+        // If the result is a number, display it
+        resultBeingDisplayed = result.toString();
+    } else {
+        // If the result is not a number, it's an error message
+        resultBeingDisplayed = ''; // Clear the result display
+        displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
+    }
 
     // Update variables for subsequent operations
     firstNumber = resultBeingDisplayed;
@@ -140,8 +147,8 @@ function performCalculation() {
 
     populateResult();
     populateDisplay();
-   
 }
+
 
 function memoryRecall() {
     // Select the container where you want to display the operation history
