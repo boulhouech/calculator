@@ -148,11 +148,11 @@ button {
 
 .result::after {
     content: attr(data-error-message); /* Use the data-error-message attribute as content */
-    color: red;
+    color: rgb(230, 47, 27);
     font-weight: bold;
     display: block; /* Display as block to place it on a new line */
-    font-size: 19px;
-    font-family: "Protest Revolution", sans-serif;
+    font-size: 12px;
+    
 
     
 }

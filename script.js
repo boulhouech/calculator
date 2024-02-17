@@ -40,6 +40,8 @@ function clearEntry() {
     populateDisplay();
     populateResult();
     OpHisContainer.innerHTML = '';
+    displayResult.removeAttribute('data-error-message');
+
 }
 
 let addNumbers = (firstValue, secondValue) => {
@@ -57,7 +59,7 @@ let multiplyNumbers = (firstValue, secondValue) => {
 let divideNumbers = (firstValue, secondValue) => {
     if (secondValue === 0) {
         return "Error: Division by zero!";
-        errorMessage = displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
+        displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
     } else {
         return firstValue / secondValue;
     }
