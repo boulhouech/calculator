@@ -180,8 +180,6 @@ function performCalculation() {
 }
 
 
-
-
 function memoryRecall() {
     // Select the container where you want to display the operation history
     const operationHistoryContainer = document.querySelector('.display .operation-history-container');
@@ -202,7 +200,6 @@ function memoryRecall() {
         operationHistoryContainer.appendChild(newOperationDiv);
     }
 }
-
 
  function memoryPlus () {
      // Store the result and operation after each calculation
@@ -243,13 +240,3 @@ function memoryRecall() {
     
         updateDisplay();
     }
-  
-
-    
-      
-    
-
- 
-    
-
-
