@@ -1,16 +1,30 @@
 ## Overview
-This project is a simple calculator application designed to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The calculator provides a user-friendly interface for performing mathematical calculations quickly and efficiently.
+This JavaScript calculator provides basic arithmetic operations and memory functions. It allows users to perform addition, subtraction, multiplication, and division, as well as calculate percentages. The calculator also includes memory functions to store and recall previous calculations.
+
 
 ## Features
-Basic Arithmetic Operations: Addition, subtraction, multiplication, and division.
-Clear Functionality: Clear button to reset the calculator display.
-Responsive Design: The calculator interface is responsive and adjusts to different screen sizes.
-Error Handling: Handles errors gracefully, such as division by zero or invalid input.
-Memory Functionality: Includes memory functions like memory recall, memory store, and memory clear.
-Technologies Used
-HTML: Used for structuring the calculator interface.
-CSS: Used for styling the calculator layout and design.
-JavaScript: Used for impleme
+
+- Arithmetic Operations: Addition (+), Subtraction (-), Multiplication (*), Division (/), Percentage (%)
+- Memory Functions: Memory Recall (MR), Memory Plus (M+), Memory Minus (M-), Memory Clear (MC)
+- Error Handling: Division by zero and other calculation errors are properly handled
+- Backspace Functionality: Users can delete the last entered digit or operator
+
+## How to Use
+
+- Use the buttons provided on the calculator interface to perform calculations.
+- View the operation history by clicking the "MR" button.
+- Store results in memory using the "M+" button.
+- Clear memory using the "MC" button.
+- Remove the last stored result using the "M-" button.
+- Click the "C" button to clear the current entry.
+- Enjoy calculating!
+
+## Live Preview
+
+You can try out the calculator live : [here](https://boulhouech.github.io/calculator/)
+
+
+
 
 
 ## Inspiration
