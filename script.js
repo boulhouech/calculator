@@ -58,13 +58,14 @@ let divideNumbers = (firstValue, secondValue) => {
     if (secondValue === 0) {
         return "Error: Division by zero!";
         errorMessage = displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
-
-
     } else {
         return firstValue / secondValue;
     }
 }
 
+let percentage = (firstValue, secondValue) => {
+    return (firstValue * secondValue) / 100; 
+}
 
 
 
@@ -78,6 +79,9 @@ function operate(selectedOperator, firstValue, secondValue) {
             return multiplyNumbers(firstValue, secondValue);
         case '/':
             return divideNumbers(firstValue, secondValue);
+        case '%': 
+        return percentage(firstValue, secondValue)    ;
+
     }
 }
 

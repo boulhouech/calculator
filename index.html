@@ -14,25 +14,25 @@
         <div class="display">
             <div class="operation dis-op "></div>
             <div class="result">
-                
+    
             </div>
             <!-- Add the operation history container here -->
             <div class="operation-history-container"></div>
         </div>
         <div class="buttons">
             <div class="rows">
-            <div class="row n-1">
-                <button class="memory-clear">mc</button>
-                <button class="memory-plus">m+</button>
-                <button class="memory-minus">m-</button>
-                <button class="mr-button">mr</button>
-            </div>
-            <div class="row n-2">
-                <button class="clear-button">C</button>
-                <button class="backspace-button" id="backspace">⌫</button>
-                <button class="operation button" id="op">/</button>
-                <button  class="operation button" id="op">*</button>
-            </div>
+                <div class="row n-1">
+                    <button class="memory-clear">mc</button>
+                    <button class="memory-plus">m+</button>
+                    <button class="memory-minus">m-</button>
+                    <button class="mr-button">mr</button>
+                </div>
+                <div class="row n-2">
+                    <button class="clear-button">C</button>
+                    <button class="backspace-button" id="backspace">⌫</button>
+                    <button onclick="performOperation('/')" class="operation button" id="op">/</button>
+                    <button onclick="performOperation('*')" class="operation button" id="op">*</button>
+                </div>
             <div class="row n-3">
                 <button onclick="appendNumber(7)" class="digit button">7</button>
                 <button onclick="appendNumber(8)" class="digit button">8</button>
@@ -53,7 +53,7 @@
                     <button onclick="appendNumber(3)" class="digit button">3</button>
                     </div>  
                     <div class="row-double-buttons">
-                        <button onclick="performPercentage()" class="operation button">%</button>
+                        <button onclick="performPercentage('%')" class="operation button">%</button>
                         <button onclick="appendNumber(0)" class="digit button">0</button>
                         <button class="digit d-operation ">,</button>
                     </div>
