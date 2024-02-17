@@ -4,6 +4,7 @@ const OpHisContainer = document.querySelector('.operation-history-container');
 const resultArray = [];
 const operationArray = [];
 const historySize = 10; // Set the  max size of history = 10 
+
 let displayValue = '';
 let resultBeingDisplayed = '';
 let firstNumber = '';
@@ -39,7 +40,6 @@ function clearEntry() {
     populateDisplay();
     populateResult();
     OpHisContainer.innerHTML = '';
-
 }
 
 let addNumbers = (firstValue, secondValue) => {
@@ -57,12 +57,15 @@ let multiplyNumbers = (firstValue, secondValue) => {
 let divideNumbers = (firstValue, secondValue) => {
     if (secondValue === 0) {
         return "Error: Division by zero!";
-        displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
+        errorMessage = displayResult.setAttribute('data-error-message', result); // Set the data-error-message attribute
+
 
     } else {
         return firstValue / secondValue;
     }
 }
+
+
 
 
 function operate(selectedOperator, firstValue, secondValue) {

@@ -11,6 +11,7 @@ body {
     height: 100vh;
     width: 100vh;
     margin: auto;
+    background-color: rgb(58, 56, 69);
 }
 
 button {
@@ -25,7 +26,7 @@ button.equal-button {
 }
 
 #backspace {
-    font-size: 30px;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,17 +37,20 @@ button.equal-button {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 15px;
+    background-color: rgb(48, 47, 47);
 
 }
 
 button {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 800;
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
-    border: 1px solid black;
-    border-radius: 6px;
+    border: 1px solid #5a7061;
+    border-radius: 4px;
+    background-color: #1c1b1bf1;
+    color: rgb(204, 215, 228);
+    font-family: "Protest Revolution", sans-serif;
     
 }
 
@@ -81,21 +85,20 @@ button {
 }
 
 .display {
-    padding-bottom: 12px;
+    
     padding-right: 1rem;
-    border: 1px solid;
     width: 200px;
     height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 5px;
     align-items: flex-end;
-    border-radius: 12px;
+    
+    
 }
 
 .result {
-    font-size: 30px;
+    font-size: 25px;
     width: 180px;
     height: 35px;
     display: flex;
@@ -103,35 +106,43 @@ button {
     align-items: center;
 }
 
-.operation-dispaly {
-    font-size: smaller;
-    width: 200px;
-    height: 25px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 8px;
-}
+
 
 #op {
-    background-color: aqua;
+    background-color: #0c8d3e;
+
+
 }
 
+#op:hover {
+    transition: background-color 0.3s ease;
+    background-color: #818f3c;
+
+
+}
 .operation-history-container {
     display: flex;
     flex-direction: column;
-    background-color: brown;
+    font-family: "Protest Revolution", sans-serif;
+
 }
 
 .container {
     overflow: auto;
     max-height: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 12px;
+
 }
 
 .operation-history-container {
     overflow-y: auto;
-    max-height: 300px; 
+    max-height: 500px; 
     max-width: 150px;
+    padding-right: 10px;
+    color: rgb(185, 59, 20);
+    font-size: 19px;
 }
 
 .result::after {
@@ -139,9 +150,63 @@ button {
     color: red;
     font-weight: bold;
     display: block; /* Display as block to place it on a new line */
-    font-size: 12px;
+    font-size: 19px;
+    font-family: "Protest Revolution", sans-serif;
+
     
 }
+
+.display {
+    
+    padding: 8px;
+
+}
+
+ .dis-op {
+    overflow-x: auto; 
+    white-space: nowrap; 
+    width: 170px;
+    height: 45px;
+    padding: 10px;
+    text-align: end;
+    margin: 0 auto; 
+    display: inline-block;
+    color: rgb(105, 98, 89);
+    font-size: 20px;
+    font-weight: 900;
+    font-family: "Protest Revolution", sans-serif;
+
+
+    
+  }
+
+  .result {
+    overflow-x: auto; 
+    white-space: nowrap; 
+    width: 170px;
+    height: 50px;
+    padding: 10px;
+    text-align: end;
+    margin: 0 auto; 
+    display: inline-block;
+    color: rgb(254, 255, 255);
+    font-family: "Protest Revolution", sans-serif;
+
+
+
+  }
+
+  button:hover {
+    background-color: #265c7d;
+    transition: background-color 0.3s ease;
+  }
+
+  
+ 
+  
+   
+    
+
 
 
 

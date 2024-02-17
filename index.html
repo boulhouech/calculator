@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Protest+Revolution&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="display">
-            <div class="operation"></div>
-            <div class="result">test
+            <div class="operation dis-op "></div>
+            <div class="result">
                 
             </div>
             <!-- Add the operation history container here -->
@@ -27,14 +30,14 @@
             <div class="row n-2">
                 <button class="clear-button">C</button>
                 <button class="backspace-button" id="backspace">⌫</button>
-                <button onclick="performOperation('/')" class="operation button" id="op">/</button>
-                <button onclick="performOperation('*')" class="operation button" id="op">*</button>
+                <button class="operation button" id="op">/</button>
+                <button  class="operation button" id="op">*</button>
             </div>
             <div class="row n-3">
                 <button onclick="appendNumber(7)" class="digit button">7</button>
                 <button onclick="appendNumber(8)" class="digit button">8</button>
                 <button onclick="appendNumber(9)" class="digit button">9</button>
-                <button onclick="performOperation('-')" class="clear-button" id="op">-</button>
+                <button onclick="performOperation('-')" class="operation button" id="op">-</button>
             </div>
             <div class="row n-4">
                 <button onclick="appendNumber(4)" class="digit button">4</button>
@@ -52,7 +55,7 @@
                     <div class="row-double-buttons">
                         <button onclick="performPercentage()" class="operation button">%</button>
                         <button onclick="appendNumber(0)" class="digit button">0</button>
-                        <button class="digit operation ">,</button>
+                        <button class="digit d-operation ">,</button>
                     </div>
                 </div>  
                 <div class="row-equal">
